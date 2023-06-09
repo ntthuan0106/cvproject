@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>{% block title %} Add a New Message {% endblock %}</h1>
+    <form method="post">
+        <label for="device_name">Device name:</label>
+        <br>
+        <input type="text" name="device_name"
+               placeholder="Input name"
+               value="{{ request.form['device_name'] }}"></input>
+        <br>
+
+        <label for="IP_device">IP Device: </label>
+        <br>
+        <input type="text" name="IP_device"
+               placeholder="IP address"
+               value="{{ request.form['IP_device']}}"></input>
+        <br>
+
+        <label for="Port">Port: </label>
+        <br>
+        <input type="text" name="Port"
+               placeholder="0 to 65536"
+               value="{{ request.form['Port']}}"></input>
+        <br>
+
+        <button type="submit">Submit</button>
+    </form>
+{% endblock %}

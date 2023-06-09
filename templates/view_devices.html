@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>{% block title %} Messages {% endblock %}</h1>
+    {% for message in messages %}
+  <div class='message'>
+    <h3>{{ message['name_device'] }}</h3>
+    {% if message['name_device'] == 'My Webcam' %}
+      <img src="{{ url_for('webcam_stream') }}" width="50%">
+    {% else %}
+      <a href="{{ url_for('device_stream', url=message['url_device']) }}"><img src="{{ url_for('device_stream', url=message['url_device']) }}" width="50%"></a>
+    {% endif %}
+  </div>
+{% endfor %}
+
+{% endblock %}
